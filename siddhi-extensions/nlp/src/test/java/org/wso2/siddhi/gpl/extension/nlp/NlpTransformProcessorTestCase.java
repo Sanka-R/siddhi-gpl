@@ -5,7 +5,9 @@ import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.wso2.siddhi.core.SiddhiManager;
-import org.wso2.siddhi.core.config.SiddhiConfiguration;
+import org.wso2.siddhi.core.config.SiddhiContext;
+
+import org.wso2.siddhi.core.config.ExecutionPlanContext;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -18,7 +20,8 @@ public abstract class NlpTransformProcessorTestCase {
     private static Logger logger = Logger.getLogger(NlpTransformProcessorTestCase.class);
 
     protected static SiddhiManager siddhiManager;
-
+    protected static SiddhiContext sc;
+    protected static ExecutionPlanContext ec;
     protected long start;
     protected long end;
 
@@ -27,20 +30,15 @@ public abstract class NlpTransformProcessorTestCase {
     @BeforeClass
     public static void setUp() throws Exception {
         logger.info("Init Siddhi");
+        siddhiManager = new SiddhiManager();
+        //SiddhiConfiguration siddhiConfiguration = new SiddhiConfiguration();
 
-        SiddhiConfiguration siddhiConfiguration = new SiddhiConfiguration();
+        //List<Class> extensions = new ArrayList<Class>(6);
+        //extensions.add(NameEntityTypeTransformProcessor.class);
 
-        List<Class> extensions = new ArrayList<Class>(6);
-        extensions.add(NameEntityTypeTransformProcessor.class);
-        extensions.add(NameEntityTypeViaDictionaryTransformProcessor.class);
-        extensions.add(RelationshipByRegexTransformProcessor.class);
-        extensions.add(RelationshipByVerbTransformProcessor.class);
-        extensions.add(SemgrexPatternTransformProcessor.class);
-        extensions.add(TokensRegexPatternTransformProcessor.class);
+        //siddhiConfiguration.setSiddhiExtensions(extensions);
 
-        siddhiConfiguration.setSiddhiExtensions(extensions);
-
-        siddhiManager = new SiddhiManager(siddhiConfiguration);
+        //siddhiManager = new SiddhiManager(siddhiConfiguration);
 
     }
 
@@ -53,7 +51,7 @@ public abstract class NlpTransformProcessorTestCase {
     public static void tearDown() throws Exception{
         Thread.sleep(1000);
         logger.info("Shutting down Siddhi");
-        siddhiManager.shutdown();
+        //siddhiManager.shutdown();
     }
 
 }

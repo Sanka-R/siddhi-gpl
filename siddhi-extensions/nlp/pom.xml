@@ -4,15 +4,13 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 
     <parent>
-        <groupId>org.wso2.siddhi.gpl</groupId>
+        <groupId>org.wso2.siddhi</groupId>
         <artifactId>siddhi-extensions</artifactId>
         <version>3.0.0-SNAPSHOT</version>
     </parent>
 
     <modelVersion>4.0.0</modelVersion>
     <artifactId>nlp</artifactId>
-    <packaging>bundle</packaging>
-
     <name>Siddhi Extension - Natural Language Processing</name>
     <description>This is a Siddhi extension that enable natural language processing capability</description>
     <url>http://wso2.org</url>
@@ -42,6 +40,26 @@
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
             <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.antlr</groupId>
+            <artifactId>antlr4</artifactId>
+            <version>4.2.2</version>
+        </dependency>
+        <dependency>
+            <groupId>org.antlr</groupId>
+            <artifactId>antlr4-runtime</artifactId>
+            <version>4.2.2</version>
+        </dependency>
+        <dependency>
+            <groupId>org.mvel</groupId>
+            <artifactId>mvel2</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.lmax.wso2</groupId>
+            <artifactId>disruptor</artifactId>
+
+            <version>3.2.1.wso2v1</version>
         </dependency>
     </dependencies>
 
